@@ -18,16 +18,64 @@
         <!--liste deroulante-->
         <ul>
             <li>
-            <label for="lis_hotel">Hôtel</label>
-            <select name="lis_hotel" id="lis_hotel">
-                <option selected value="0">-- Sélectionnez un hotel --</option>
-                <option value="City">Hôtel City</option>
-                <option value="National">Hôtel National</option>
-                <option value="Midi">Hôtel Le Midi</option>
-                <option value="Victoria">Hôtel Victoria</option>
-            </select>
+                <label for="lis_hotel">Hôtel</label>
+                <select name="lis_hotel" id="lis_hotel">
+                    <option selected value="0">-- Sélectionnez un hotel --</option>
+                    <option value="City">Hôtel City</option>
+                    <option value="National">Hôtel National</option>
+                    <option value="Midi">Hôtel Le Midi</option>
+                    <option value="Victoria">Hôtel Victoria</option>
+                </select>
             </li>
             <!--champ de texte-->
+            <li>
+                <label for="text">Nombre de chambre:</label>
+                <input type="text" name="txt_nbrChambre" id="text" maxlength="2">
+            </li>
+            <li>
+                <fieldset>
+                    <legend>Type de chambre</legend>
+                    <input type="radio" name="opt_type_chambre" id="st_standard" value="standard simple"/>
+                    <label for="st_standard">standard simple</label>
+
+                    <input type="radio" name="opt_type_chambre" id="st_double" value="standard double"/>
+                    <label for="st_double">Standard double</label>
+
+                    <input type="radio" name="opt_type_chambre" id="sup_simple" value="supérieur simple"/>
+                    <label for="sup_simple">Supérieur simple </label>
+
+                    <input type="radio" name="opt_type_chambre" id="sup_double" value="supérieur double"/>
+                    <label for="sup_double">Supérieur double </label>
+                </fieldset>
+            </li>
+            <li>
+                <fieldset>
+                    <legend>Options disponibles</legend>
+
+                    <input type="checkbox" name="chk_options" id="pt_dejeuner" value="Petit déjeuner"/>
+                    <label for="pt_dejeuner">Petit déjeuner</label>
+
+                    <input type="checkbox" name="chk_options" id="tv" value="TV"/>
+                    <label for="tv">TV</label>
+
+                    <input type="checkbox" name="chk_options" id="journaux" value="Journaux"/>
+                    <label for="journaux">Journaux</label>
+
+                    <input type="checkbox" name="chk_options" id="ordi" value="Ordinateurs"/>
+                    <label for="ordi">Ordinateurs</label>
+
+                    <input type="checkbox" name="chk_options" id="wifi" value="Accès Wifi"/>
+                    <label for="wifi">Accès Wifi</label>
+
+                    <input type="checkbox" name="chk_options" id="An_companie" value="Animaux de compagnie"/>
+                    <label for="An_companie">Animaux de compagnie</label>
+
+                </fieldset>
+            </li>
+            <li>
+                <button class="left" type="reset" name="Bouton reset">Effacer</button>
+                <button class="right" type="submit" name="Bouton simple">Réserver</button>
+            </li>
         </ul>
     </form>
 
