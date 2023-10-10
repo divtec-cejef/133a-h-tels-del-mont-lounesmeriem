@@ -13,9 +13,24 @@
 <!-- HOTELS -->
 <div id="hotels">
     <h1>Hôtels à Delémont</h1>
-
     <!-- FORMULAIRE DE RESERVATION -->
-    <!-- au cas ou t'aurais pas compris place ton fromulaire ici. A+ Manfred -->
+    <form method="get" action="https://kode.ch/getpost/">
+        <!--liste deroulante-->
+        <ul>
+            <li>
+            <label for="lis_hotel">Hôtel</label>
+            <select name="lis_hotel" id="lis_hotel">
+                <option selected value="0">-- Sélectionnez un hotel --</option>
+                <option value="City">Hôtel City</option>
+                <option value="National">Hôtel National</option>
+                <option value="Midi">Hôtel Le Midi</option>
+                <option value="Victoria">Hôtel Victoria</option>
+            </select>
+            </li>
+            <!--champ de texte-->
+        </ul>
+    </form>
+
 </div>
 
 <!-- RESERVATION -->
