@@ -69,13 +69,37 @@ return formulaireReservtion.querySelectorAll('[name="chk_options[]"]:checked');
  * @returns {String}    Chaine vide si pas d'erreur ou <ul> d'erreurs
  */
 function valideSaisie() {
-
+ let erreurs = "";
+ let nombreChambre = getNbChambre();
+ if (getHotel() === " "){
+ return erreurs += "<li> Choisir un hôtel</li>";
+ }else if (Number.isNaN(nombreChambre) || nombreChambre < 1 || nombreChambre > 12 ){
+  return erreurs += "<li> Entrer un nombre de chambre, maximum 12</li>";
+ }else if (getNbChambre() === ""){
+  return erreurs += "<li> Choisir un type de chambre </li>";
+ }
+return erreurs;
 }
 
 /**
  * Affiche la confirmation de réservation
  */
 function afficheConfirmation() {
+ //afficher la photo de l'hotel
+ imagePhotoHotel.src = "images/" + getHotel().toLowerCase()+".jpg";
+
+ //afficher le titre h2
+ nomHotel.innerText = getHotel();
+
+ //afficher le nombre de chambres et le type de chambres reserver
+ spanChambreNombre.innerText = getNbChambre().toString();
+ spanChambreType.innerText = getChambre();
+ ulOptions.innerHTML =" ";
+ for (let option of getOptions()) {
+  ulOptions.innerHTML += "<li>" + option.value + "</li>";
+ }
+//afficher la reservation
+laReservation.style.display = "block";
 
 }
 
