@@ -44,7 +44,7 @@ function getNbChambre() {
  * @returns {String} Type de chambre ou ""
  */
 function getChambre() {
- const uneChambre = formulaireReservtion.querySelectorall('[name="opt_type_chambre"]:checked');
+ const uneChambre = formulaireReservtion.querySelectorAll('[name="opt_type_chambre"]:checked');
  if (uneChambre === null){
   return "";
  }else{
@@ -55,7 +55,7 @@ function getChambre() {
 
 /**
  * Retourne les options choisies par le visiteur
- * @returns {Array} tableau des éléments checkbox cochés
+ * @returns {NodeList} tableau des éléments checkbox cochés
  */
 function getOptions() {
 return formulaireReservtion.querySelectorAll('[name="chk_options[]"]:checked');
@@ -72,11 +72,11 @@ function valideSaisie() {
  let erreurs = "";
  let nombreChambre = getNbChambre();
  if (getHotel() === " "){
- return erreurs += "<li> Choisir un hôtel</li>";
+ erreurs += "<li> Choisir un hôtel</li>";
  }else if (Number.isNaN(nombreChambre) || nombreChambre < 1 || nombreChambre > 12 ){
-  return erreurs += "<li> Entrer un nombre de chambre, maximum 12</li>";
+ erreurs += "<li> Entrer un nombre de chambre, maximum 12</li>";
  }else if (getNbChambre() === ""){
-  return erreurs += "<li> Choisir un type de chambre </li>";
+   erreurs += "<li> Choisir un type de chambre </li>";
  }
 return erreurs;
 }
@@ -108,16 +108,33 @@ laReservation.style.display = "block";
  * Test la saisie et affiche la confirmation ou le message d'erreur
  * @param event Objet représentant l'événement
  */
-const resrever = document.getElementById('reservation');
-const formulaire = document.getElementById('Formulaire');
-
 //alert("coucou!");
 function reserver(event) {
  // Stoppe l'envoi du formulaire
- //event.preventDefault();
+ event.preventDefault();
+
+ //valide les messages d'erreurs
+ message.innerHTML = " ";
+ message.style.display = "none";
+
+ //valider les saisies des utilisateurs
+ let erreurs = valideSaisie();
+ if (erreurs){
+  message.innerHTML = "<ul>"+ erreurs + "</ul>";
+  message.style.display = "block";
+
+  laReservation.style.display = "none";
+  return erreurs;
+ }
+ //afficher la confirmation de la reservation
+ afficheConfirmation();
+
 
 }
-formulaire.addEventListener('submit', () => {
- event.preventDefault();
- alert('reserver');
+/** Evénements du formulaire : envoi et réinitialisation **/
+
+formulaireReservtion.addEventListener("submit", reserver);
+formulaireReservtion.addEventListener("reset", function () {
+ message.style.display = "none";
+ laReservation.style.display = "none";
 });
