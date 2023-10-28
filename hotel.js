@@ -12,6 +12,16 @@ const formulaireReservtion = document.getElementById('Formulaire');
 const message = document.getElementById('message');
 const laReservation = document.getElementById('reservation');
 
+/**recupérer les elements du formulaire**/
+const lisHotel = document.getElementById('lis_hotel');
+const nombreChambre = document.getElementById('txt_nbrChambre');
+console.log(lisHotel,nombreChambre);
+
+const imagePhotoHotel = document.getElementById('photo');
+const nomHotel = laReservation.querySelector('h2');
+const spanChambreNombre = docuemnt.getElementById('chambre_nombre');
+const spanChambreType = document.getElementById('chambre_type');
+const ulOptions = document.getElementById('options');
 /**
  * Retourne le nom de l'hotel sélectionné par le visiteur
  * @returns {String} Nom de l'hotêl ou "0" si pas de sélection
