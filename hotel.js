@@ -19,7 +19,7 @@ console.log(lisHotel,nombreChambre);
 
 const imagePhotoHotel = document.getElementById('photo');
 const nomHotel = laReservation.querySelector('h2');
-const spanChambreNombre = docuemnt.getElementById('chambre_nombre');
+const spanChambreNombre = document.getElementById('chambre_nombre');
 const spanChambreType = document.getElementById('chambre_type');
 const ulOptions = document.getElementById('options');
 /**
@@ -27,7 +27,7 @@ const ulOptions = document.getElementById('options');
  * @returns {String} Nom de l'hotêl ou "0" si pas de sélection
  */
 function getHotel() {
-
+return lisHotel.value;
 }
 
 /**
@@ -35,6 +35,7 @@ function getHotel() {
  * @returns {Number} Nombre de chambres ou NaN (Not A Number)
  */
 function getNbChambre() {
+ return parseInt(nombreChambre.value);
 
 }
 
@@ -43,6 +44,12 @@ function getNbChambre() {
  * @returns {String} Type de chambre ou ""
  */
 function getChambre() {
+ const uneChambre = formulaireReservtion.querySelectorall('[name="opt_type_chambre"]:checked');
+ if (uneChambre === null){
+  return "";
+ }else{
+  return uneChambre.value;
+ }
 
 }
 
@@ -51,7 +58,7 @@ function getChambre() {
  * @returns {Array} tableau des éléments checkbox cochés
  */
 function getOptions() {
-
+return formulaireReservtion.querySelectorAll('[name="chk_options[]"]:checked');
 }
 
 /**
