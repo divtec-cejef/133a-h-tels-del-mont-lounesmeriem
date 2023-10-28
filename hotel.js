@@ -7,6 +7,10 @@
 */
 
 "use strict";
+/**recupérer les elements globaux**/
+const formulaireReservtion = document.getElementById('Formulaire');
+const message = document.getElementById('message');
+const laReservation = document.getElementById('reservation');
 
 /**
  * Retourne le nom de l'hotel sélectionné par le visiteur
@@ -63,6 +67,16 @@ function afficheConfirmation() {
  * Test la saisie et affiche la confirmation ou le message d'erreur
  * @param event Objet représentant l'événement
  */
+const resrever = document.getElementById('reservation');
+const formulaire = document.getElementById('Formulaire');
+
+//alert("coucou!");
 function reserver(event) {
+ // Stoppe l'envoi du formulaire
+ //event.preventDefault();
 
 }
+formulaire.addEventListener('submit', () => {
+ event.preventDefault();
+ alert('reserver');
+});
